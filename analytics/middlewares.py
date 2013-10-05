@@ -78,7 +78,7 @@ class AnalyticsJSInjector(ContentModifier):
         html_detected = False
         for line in app_iter:
             if not snippet_injected:
-                if 'html>' in line.lower():
+                if 'html>' in line.lower() or '<!doctype html' in line.lower():
                     html_detected = True
 
                 if html_detected and 'var analytics=analytics||[];analytics.load=function(e)' in line.lower():
